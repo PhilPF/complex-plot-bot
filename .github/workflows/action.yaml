@@ -1,4 +1,4 @@
-name: email-from-python
+name: complex-plot-bot
 
 on:
   schedule:
@@ -19,7 +19,8 @@ jobs:
 
       - name: execute py script # email-from-python.py
         env: 
-          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
-        run: python email-from-python.py
+          API_KEY: ${{secrets.API_KEY}}
+          API_KEY_SECRET: ${{secrets.API_KEY_SECRET}}
+          ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
+          ACCESS_TOKEN_SECRET: ${{secrets.ACCESS_TOKEN_SECRET}}
+        run: python bot.py
