@@ -1,5 +1,5 @@
 tweepy~=3.10
 wget
 numpy 
-pylab
+matplotlib
 sympy
