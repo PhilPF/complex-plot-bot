@@ -1,3 +1,21 @@
+#IMPORTS
+
+import tweepy as tp
+import os
+import time
+
+import wget
+
+import numpy as np
+import pylab as plt
+import sympy as sp
+from colorsys import hls_to_rgb
+import random 
+from PIL import Image
+import PIL.ImageOps 
+
+
+
 #FUNCTIONS
 
 # Operations
