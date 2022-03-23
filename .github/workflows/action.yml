@@ -1,7 +1,9 @@
 name: complex-plot-bot
-description: run-bot-file
 
-on:
+on: 
+  push:
+    branches:
+      - master
   schedule:
     - cron: '*/5 * * * *' # runs every 5 min
 
