@@ -80,6 +80,13 @@ def arccosh(a,t,l):
 def arctanh(a,t,l):
     return (np.arctanh(a), 'arctanh('+t+')', r'\operatorname{arctanh}('+l+')') 
 
+#CREDENTIALS
+
+API_KEY = os.environ.get("API_KEY")
+API_KEY_SECRET = os.environ.get("API_KEY_SECRET")
+
+ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
+ACCESS_TOKEN_SECRET = os.environ.get("ACCESS_TOKEN_SECRET")
 
 
 #PLOT GENERATOR
@@ -222,8 +229,8 @@ def updateProfPic():
     maxLikesFile.close()    
     
     # login to twitter account api
-    auth = tp.OAuthHandler(c.API_key(), c.API_key_secret())
-    auth.set_access_token(c.access_token(), c.access_token_secret())
+    auth = tp.OAuthHandler(API_KEY, API_KEY_SECRET)
+    auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     api = tp.API(auth)
     
     tweet = api.user_timeline(screen_name='complex_plot', count=20, include_rts=False, exclude_replies=True)
@@ -299,8 +306,8 @@ def gen():
 
 
 # login to twitter account api
-auth = tp.OAuthHandler(c.API_key(), c.API_key_secret())
-auth.set_access_token(c.access_token(), c.access_token_secret())
+auth = tp.OAuthHandler(API_KEY, API_KEY_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tp.API(auth)
 
 
