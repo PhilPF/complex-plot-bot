@@ -1,2 +1,5 @@
 tweepy~=3.10
 wget
+numpy 
+pylab
+sympy
