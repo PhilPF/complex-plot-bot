@@ -2,10 +2,11 @@ name: complex-plot-bot
 
 on: 
   push:
-    branches:
-      - master
+    branches: [main]
   schedule:
     - cron: '*/5 * * * *' # runs every 5 min
+    
+  workflow_dispatch:
 
 jobs:
   build:
