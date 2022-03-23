@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: checkout repo content
+      - name: checkout repo
         uses: actions/checkout@v2 # checkout the repository content to github runner
 
       - name: setup python
