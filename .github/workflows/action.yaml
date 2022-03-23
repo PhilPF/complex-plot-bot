@@ -1,25 +1,25 @@
-name: GitHub Actions Complex Plot Bot
+name: email-from-python
 
-on: 
-  schedule: 
-    - cron: '*/5 * * * *'
+on:
+  schedule:
+    - cron: '*/15 * * * *' # runs every 15 min
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      -	name: checkout repo
-        uses: actions/checkout@v2
+
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner
 
       - name: setup python
         uses: actions/setup-python@v2
-        with: 
-          python-version: '3.9.7'
+        with:
+          python-version: '3.x' # install the latest python version
 
-      - name: run code
+      - name: execute py script # email-from-python.py
         env: 
-          API_KEY: ${{secrets.API_KEY}}
-          API_KEY_SECRET: ${{secrets.API_KEY_SECRET}}
-          ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
-          ACCESS_TOKEN_SECRET: ${{secrets.ACCESS_TOKEN_SECRET}}
-        run: python bot.py
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
+        run: python email-from-python.py
