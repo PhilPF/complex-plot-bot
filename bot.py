@@ -153,7 +153,7 @@ def RandomFunction():
         
     return function
 
-def GenerateLayout(im1, im2, resample=Image.BICUBIC, margin=200):
+def GenerateLayout(im1, im2, resample=Image.Resampling.BICUBIC, margin=200):
     scale_factor=im2.width/im2.height
     new_im2_height=int(im1.height/4)
     new_im2_width=int(new_im2_height*scale_factor)
