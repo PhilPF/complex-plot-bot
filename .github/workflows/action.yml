@@ -27,8 +27,8 @@ jobs:
           pip install -r requirements.txt
           
       - name: Install TinyTeX
-      run: |
-      wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+        run: |
+          wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
 
       - name: execute py script 
         env: 
