@@ -223,7 +223,7 @@ def editProfPic():
     downloaded=Image.open('profilePic/profilePic.jpg')
     
     logo=Image.open('profilePic/logo.png')
-    logo = logo.resize((downloaded.width, downloaded.width), resample=Image.BICUBIC)
+    logo = logo.resize((downloaded.width, downloaded.width), resample=Image.Resampling.BICUBIC)
 
     profPic = Image.new('RGB', (downloaded.width, downloaded.width), color=(0,0,0))
     profPic.paste(downloaded, (0, 0))
@@ -234,7 +234,7 @@ def editBanner():
     banner=Image.open('profilePic/banner_logo.png')
     
     downloaded=Image.open('profilePic/profilePic.jpg')
-    downloaded = downloaded.resize((banner.width, int(banner.width*downloaded.height/downloaded.width)), resample=Image.BICUBIC)
+    downloaded = downloaded.resize((banner.width, int(banner.width*downloaded.height/downloaded.width)), resample=Image.Resampling.BICUBIC)
 
     profPic = Image.new('RGB', (banner.width, banner.height), color=(0,0,0))
     profPic.paste(downloaded, (0, -int(downloaded.width/3)))
