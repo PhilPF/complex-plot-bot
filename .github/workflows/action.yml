@@ -6,7 +6,7 @@ on:
   schedule:
   - cron: '30 7,13,16,18,19 * * *' # “At minute 0 past hour 9, 15, and 21.” 
     
-  workflow_dispatch:
+#   workflow_dispatch:
 
 jobs:
   build:
