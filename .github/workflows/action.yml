@@ -30,6 +30,7 @@ jobs:
         run: |
           sudo apt-get install texlive -y
           tlmgr init-usertree
+          tlmgr install standalone
           
 #       - name: Install TinyTeX
 #         run: |
