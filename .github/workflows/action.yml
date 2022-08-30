@@ -29,6 +29,7 @@ jobs:
       - name: Install TeXLive
         run: |
           sudo apt-get install texlive -y
+          tlmgr install standalone
           
 #       - name: Install TinyTeX
 #         run: |
