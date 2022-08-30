@@ -26,9 +26,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: Install TinyTeX
+      - name: Install TeXLive
         run: |
-          apt-get install texlive -y
+          sudo apt-get install texlive -y
           
 #       - name: Install TinyTeX
 #         run: |
