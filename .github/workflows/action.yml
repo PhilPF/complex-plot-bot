@@ -23,6 +23,7 @@ jobs:
         
       - name: Install TeXLive
         run: |
+          sudo apt-get install texlive -y
           tlmgr repository add ftp://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2019/tlnet-final
           tlmgr init-usertree
           sudo apt-get install xzdec
