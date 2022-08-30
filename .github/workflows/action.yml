@@ -24,7 +24,7 @@ jobs:
       - name: Install TeXLive
         run: |
           sudo apt-get install texlive -y
-          sudo dnf install texlive-scheme-basic
+          sudo apt-get install texlive-scheme-basic
       
       - name: Install packages
         run: |
