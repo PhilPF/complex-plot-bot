@@ -24,8 +24,11 @@ jobs:
       - name: Install TeXLive
         run: |
           sudo apt-get install texlive -y
-          sudo apt-get install texlive-scheme-basic
-      
+          tlmgr init-usertree
+          sudo apt-get install xzdec
+          tlmgr --verify-repo=none install framed
+          tlmgr --verify-repo=none install standalone
+          
       - name: Install packages
         run: |
           python -m pip install --upgrade pip
