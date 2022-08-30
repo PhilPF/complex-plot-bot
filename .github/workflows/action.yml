@@ -28,7 +28,7 @@ jobs:
           
       - name: Install TinyTeX
         run: |
-          apt install texlive -y
+          apt-get install texlive -y
           
 #       - name: Install TinyTeX
 #         run: |
