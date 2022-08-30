@@ -28,7 +28,11 @@ jobs:
           
       - name: Install TinyTeX
         run: |
-          wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+          apt install texlive -y
+          
+#       - name: Install TinyTeX
+#         run: |
+#           wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
 
       - name: execute py script 
         env: 
