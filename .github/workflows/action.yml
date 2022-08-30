@@ -21,20 +21,19 @@ jobs:
         with:
           python-version: '3.x' # install the latest python version
         
-      - name: Install TeXLive
-        run: |
-          sudo apt-get install texlive -y
-          tlmgr init-usertree
-          tlmgr repository add ftp://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2019/tlnet-final
-          sudo apt-get install xzdec
-          tlmgr --verify-repo=none install framed
-          tlmgr --verify-repo=none install standalone
-          
       - name: Install packages
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
+      - name: Install TeXLive
+        run: |
+          cd /tmp
+          wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+          zcat install-tl-unx.tar.gz | tar xf -
+          cd install-tl-*
+          perl ./install-tl --no-interaction 
+          
       - name: execute py script 
         env: 
           API_KEY: ${{secrets.API_KEY}}
