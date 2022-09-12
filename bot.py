@@ -125,7 +125,8 @@ def colorize(z):
 def RandomFunction():
     opList1=[suma, resta]
     opList2=[prod, div, pot, potinv]
-    opList=[opList1, opList2]
+    opList3=[] # Fake composition
+    opList= [opList1, opList2, opList3]
     
     fList1=[exp, log]
     fList2=[sin, arcsin, cos, arccos, tan, arctan, sinh, arcsinh, cosh, arccosh, tanh, arctanh]
@@ -148,8 +149,11 @@ def RandomFunction():
             if newfType!=oldfType: 
                 oldfType=newfType
                 break 
-        newf = random.choice(newfType)(Z,'z','z')
-        function = random.choice(newOpType)(function[0],newf[0],function[1],newf[1],function[2],newf[2])
+        if (newOpType == opList3):
+            function = random.choice(newfType)(function[0],function[1],function[2])
+        else:
+            newf = random.choice(newfType)(Z,'z','z')
+            function = random.choice(newOpType)(function[0],newf[0],function[1],newf[1],function[2],newf[2])
         
     return function
 
