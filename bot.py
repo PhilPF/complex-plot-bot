@@ -21,22 +21,22 @@ import PIL.ImageOps
 # Operations
 
 
-def suma(a,b,ta,tb,la,lb):
+def suma(a,ta,la,b,tb,lb):
     return(a+b, '('+ta+')+('+tb+')', la+'+'+lb)
     
-def resta(a,b,ta,tb,la,lb):
+def resta(a,ta,la,b,tb,lb):
     return(a-b, '('+ta+')-('+tb+')', la+'-'+lb)
 
-def prod(a,b,ta,tb,la,lb):
+def prod(a,ta,la,b,tb,lb):
     return(a*b, '('+ta+')*('+tb+')', la+r'\cdot'+lb)
     
-def div(a,b,ta,tb,la,lb):
+def div(a,ta,la,b,tb,lb):
     return(a/b, '('+ta+')/('+tb+')',r'\frac{'+la+'}{'+lb+'}')
     
-def pot(a,b,ta,tb,la,lb):
+def pot(a,ta,la,b,tb,lb):
     return(a**b, '('+ta+')^('+tb+')', '{'+la+'}^{'+lb+'}')
     
-def potinv(a,b,ta,tb,la,lb):
+def potinv(a,ta,la,b,tb,lb):
     return(a**(1/b), '('+ta+')^(1/('+tb+'))', la+r'^\frac{1}{'+lb+'}')
     
 
@@ -109,6 +109,7 @@ ACCESS_TOKEN_SECRET = os.environ.get("ACCESS_TOKEN_SECRET")
 
 #PLOT GENERATOR
 
+
 def colorize(z):
     n,m = z.shape
     c = np.zeros((n,m,3))
@@ -135,25 +136,21 @@ def RandomFunction():
     
     newfType=random.choice(fList)
 
-    function=random.choice(newfType)(Z,'z','z')
+    function=random.choice(newfType)(*Z_0)
     oldOpType=[]
     oldfType=newfType
     for i in range(2,random.randint(4,6)):
-        while True:
-            newOpType=random.choice(opList)
-            if newOpType!=oldOpType: 
-                oldOpType=newOpType
-                break 
-        while True:
-            newfType=random.choice(fList)
-            if newfType!=oldfType: 
-                oldfType=newfType
-                break 
+        newOpType=[]
+
+        while newOpType==oldOpType: newOpType=random.choice(opList)
+            
+        while newfType==oldfType: oldfType=random.choice(fList)
+                 
         if (newOpType == opList3):
-            function = random.choice(newfType)(function[0],function[1],function[2])
+            function = random.choice(newfType)(*function)
         else:
-            newf = random.choice(newfType)(Z,'z','z')
-            function = random.choice(newOpType)(function[0],newf[0],function[1],newf[1],function[2],newf[2])
+            newf = random.choice(newfType)(*Z_0)
+            function = random.choice(newOpType)(*function,*newf)
         
     return function
 
@@ -197,6 +194,8 @@ def plot(i):
     X,Y = np.meshgrid(axis_x,axis_y)
     global Z
     Z = X + Y*1j
+    global Z_0
+    Z_0 = [Z,'z','z']
     
     function = RandomFunction()
 
