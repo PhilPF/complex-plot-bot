@@ -144,7 +144,7 @@ def RandomFunction():
 
         while newOpType==oldOpType: newOpType=random.choice(opList)
             
-        while newfType==oldfType: oldfType=random.choice(fList)
+        while newfType==oldfType: newfType=random.choice(fList)
                  
         if (newOpType == opList3):
             function = random.choice(newfType)(*function)
