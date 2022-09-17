@@ -2,8 +2,8 @@
 
 import tweepy as tp
 import os
-import time
 
+import time
 import wget
 
 import numpy as np
@@ -135,16 +135,20 @@ def RandomFunction():
     fList=[fList1, fList2, fList3]
     
     newfType=random.choice(fList)
-
     function=random.choice(newfType)(*Z_0)
-    oldOpType=[]
     oldfType=newfType
+    
+    newOpType=[]
+    oldOpType=[]
+
     for i in range(2,random.randint(4,6)):
-        newOpType=[]
 
         while newOpType==oldOpType: newOpType=random.choice(opList)
             
         while newfType==oldfType: newfType=random.choice(fList)
+        
+        oldOpType=newOpType
+        oldfType=newfType
                  
         if (newOpType == opList3):
             function = random.choice(newfType)(*function)
@@ -254,7 +258,7 @@ def updateProfPic():
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     api = tp.API(auth)
     
-    tweet = api.user_timeline(screen_name='complex_plot', count=20, include_rts=False, exclude_replies=True)
+    tweet = api.user_timeline(screen_name='complex_plot', count=21, include_rts=False, exclude_replies=True)
     
     media_files = list()
     for status in reversed(tweet):
