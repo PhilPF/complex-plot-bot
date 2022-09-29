@@ -28,6 +28,7 @@ jobs:
       
       - name: Install TeXLive
         run: |
+          sudo apt-get update
           sudo apt-get install texlive
           sudo apt-get install texlive-fonts-extra
           sudo apt-get install dvipng   
