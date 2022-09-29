@@ -6,6 +6,6 @@ Complex Plot Bot is a Twitter Bot that uploads every day a complex function next
 
 It also changes the icon and the banner to the most liked plot
 
-<img src="https://pbs.twimg.com/profile_banners/1408572809215942663/1661888014/1500x500" width="500">
+
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/complexplot?style=social)](https://twitter.com/complex_plot)
